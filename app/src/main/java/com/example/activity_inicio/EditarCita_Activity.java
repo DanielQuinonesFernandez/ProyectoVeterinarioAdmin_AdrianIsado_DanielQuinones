@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,8 +36,7 @@ import es.dam.model.objetos.*;
 import es.dam.sql.MySQLConnection;
 
 public class EditarCita_Activity extends AppCompatActivity {
-
-    private final ArrayList<Mascota> mascotasDeEsteUsuario = new ArrayList<>();
+    private ArrayList<String> mascotasDeEsteUsuario = new ArrayList<>();
     private EditText etDescripcionCita, edOtroTipoCita, etFechaCita;
     private Spinner spinnerSelecMascota, spinnerSelecTipoCita;
     private TimePicker timePicker;
@@ -79,7 +79,7 @@ public class EditarCita_Activity extends AppCompatActivity {
         obtenerDescripcionCita();
 
         spinnerSelecMascota = findViewById(R.id.combobox_seleccionMascota);
-        ArrayAdapter<Mascota> adapterSelecMascota = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, mascotasDeEsteUsuario);
+        ArrayAdapter<String> adapterSelecMascota = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, mascotasDeEsteUsuario);
         adapterSelecMascota.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSelecMascota.setAdapter(adapterSelecMascota);
 
@@ -113,7 +113,7 @@ public class EditarCita_Activity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int hora = timePicker.getHour();
                 @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
-                tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
+                tvFechaHoraSeleccionada.setText(getString(R.string.fecha_seleccionada) + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
             }
 
             @Override
@@ -124,7 +124,7 @@ public class EditarCita_Activity extends AppCompatActivity {
         timePicker.setOnTimeChangedListener((view, hourOfDay, minute) -> {
             int hora = timePicker.getHour();
             @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
-            tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
+            tvFechaHoraSeleccionada.setText(getString(R.string.fecha_seleccionada) + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
         });
 
         // Manejar el cambio de selección en el spinner de tipo de mensaje
@@ -162,7 +162,7 @@ public class EditarCita_Activity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 edOtroTipoCita.setText("");
-                if (spinnerSelecTipoCita.getSelectedItem().toString().equals("Otros - Por favor, consulte con el veterinario")) {
+                if (spinnerSelecTipoCita.getSelectedItem().toString().equals(getString(R.string.otros_consulte_veterinario))) {
                     edOtroTipoCita.setVisibility(View.VISIBLE);
                     edOtroTipoCita.requestFocus();
                 } else {
@@ -191,7 +191,8 @@ public class EditarCita_Activity extends AppCompatActivity {
 
             resultSet.close();
             connection.close();
-        } catch (SQLException ignored) {
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -214,17 +215,19 @@ public class EditarCita_Activity extends AppCompatActivity {
             resultSet.close();
             connection.close();
 
-            // Una vez obtenido el id de la mascota asociada a la cita, seleccionamos la mascota en el Spinner
             if (idMascotaCitaSeleccionada != -1) {
                 for (int i = 0; i < mascotasDeEsteUsuario.size(); i++) {
-                    if (mascotasDeEsteUsuario.get(i).getId() == idMascotaCitaSeleccionada) {
+                    String mascota = mascotasDeEsteUsuario.get(i);
+                    int idMascota = Integer.parseInt(mascota.split("-")[0]); // Obtener el ID de la mascota del String
+                    if (idMascota == idMascotaCitaSeleccionada) {
                         spinnerSelecMascota.setSelection(i);
                         break;
                     }
                 }
             }
 
-        } catch (SQLException ignored) {
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -261,30 +264,22 @@ public class EditarCita_Activity extends AppCompatActivity {
         }
     }
 
-
     private void rellenarArraylistDesdeBBDD() {
         try {
             Connection connection = MySQLConnection.getConnection();
-
-            String sql = "SELECT * FROM Mascotas WHERE idUsuario = ?";
-
+            String sql = "SELECT IdMascota, NombreMascota FROM Mascotas WHERE idUsuario = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, idUsuario);
-
             ResultSet resultSet = statement.executeQuery();
+
+            mascotasDeEsteUsuario.clear();
 
             while (resultSet.next()) {
                 int idMascota = resultSet.getInt("IdMascota");
                 String nombreMascota = resultSet.getString("NombreMascota");
-                String especie = resultSet.getString("Especie");
-                Date fechaNacimiento = resultSet.getDate("FechaNacimiento");
-                byte[] imagenBytes = resultSet.getBytes("Imagen");
-                Bitmap imagenMascota = BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
-                int idUsuario = resultSet.getInt("IdUsuario");
-
-                mascotasDeEsteUsuario.add(new Mascota(idMascota, nombreMascota, especie, fechaNacimiento, imagenMascota, idUsuario));
+                String idNombreConcatenado = idMascota + "-" + nombreMascota;
+                mascotasDeEsteUsuario.add(idNombreConcatenado);
             }
-
             resultSet.close();
             connection.close();
 
@@ -292,8 +287,19 @@ public class EditarCita_Activity extends AppCompatActivity {
         }
     }
 
+    private int obtenerIdMascota(String mascotaElegida) {
+        // Obtener la ID de la mascota a partir del texto seleccionado en el Spinner
+        if (mascotaElegida != null && mascotaElegida.contains("-")) {
+            String idMascotaStr = mascotaElegida.split("-")[0];
+            return Integer.parseInt(idMascotaStr);
+        }
+        return -1; // Valor predeterminado si no se puede obtener la ID de la mascota
+    }
+
     private void editarCita() {
+        Connection connection = null;
         try {
+            connection = MySQLConnection.getConnection();
             // Validar que los campos no estén vacíos
             if (spinnerSelecMascota.getSelectedItem() == null ||
                     spinnerSelecTipoCita.getSelectedItem() == null ||
@@ -304,7 +310,7 @@ public class EditarCita_Activity extends AppCompatActivity {
                     etContenidoMensaje.getText().toString().isEmpty()) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("Por favor, complete todos los campos.");
+                builder.setMessage(getString(R.string.campos_vacios));
                 builder.setPositiveButton("OK", null);
                 builder.create().show();
                 return;
@@ -313,11 +319,20 @@ public class EditarCita_Activity extends AppCompatActivity {
             int hora = timePicker.getHour();
             @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
 
-            Connection connection = MySQLConnection.getConnection();
+            if (connection == null) {
+                connection = MySQLConnection.getConnection();
+            }
 
             String sql = "UPDATE Citas SET TipoCita = ?, FechaHora = ?, DescripcionCita = ?, IdMascota = ? WHERE IdCita = ?";
-            int idMascotaElegida = obtenerIdMascota(spinnerSelecMascota.getSelectedItem().toString());
 
+            String mascotaSeleccionada = spinnerSelecMascota.getSelectedItem().toString();
+            int idMascotaElegida = obtenerIdMascota(mascotaSeleccionada);
+
+            // Verificar si el ID de la mascota elegida es válido
+            if (idMascotaElegida == -1) {
+                Toast.makeText(EditarCita_Activity.this, getString(R.string.error_no_mascota_seleccionada), Toast.LENGTH_SHORT).show();
+                return;
+            }
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, spinnerSelecTipoCita.getSelectedItem().toString());
             statement.setString(2, etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
@@ -328,49 +343,25 @@ public class EditarCita_Activity extends AppCompatActivity {
 
             // Crear y enviar objeto Mensaje
             Mensaje mensaje = new Mensaje(idUsuario, etAsuntoMensaje.getText().toString(), etContenidoMensaje.getText().toString(),
-            spinnerSelecTipoMensaje.getSelectedItem().toString());
+                    spinnerSelecTipoMensaje.getSelectedItem().toString());
             enviarMensajeABaseDeDatos(mensaje);
 
-            connection.close();
-
             AlertDialog.Builder builder = new AlertDialog.Builder(EditarCita_Activity.this);
-            builder.setMessage("Has actualizado correctamente la cita:\n" +
-                    "- Fecha: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr + "\n" +
-                    "- Tipo de cita: " + spinnerSelecTipoCita.getSelectedItem().toString() + "\n" +
-                    "- Descripción: " + etDescripcionCita.getText().toString() + "\n" +
-                    "- Mascota: " + spinnerSelecMascota.getSelectedItem().toString());
+            builder.setMessage(getString(R.string.cita_asignada_correctamente) +
+                    getString(R.string.mensaje_cita_asignada_fecha) + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr + "\n" +
+                    getString(R.string.mensaje_cita_asignada_tipo) + spinnerSelecTipoCita.getSelectedItem().toString() + "\n" +
+                    getString(R.string.mensaje_cita_asignada_descripcion) + etDescripcionCita.getText().toString() + "\n" +
+                    getString(R.string.mensaje_cita_asignada_mascota) + spinnerSelecMascota.getSelectedItem().toString());
             builder.setPositiveButton("OK", (dialog, which) -> {
                 Intent intent = new Intent(EditarCita_Activity.this, GestionarCitas_Activity.class);
                 intent.putExtra("idUsuario", idUsuario);
                 startActivity(intent);
                 finish();
             });
-            connection.close();
             builder.create().show();
 
-        } catch (SQLException ignored) {
-        }
-    }
-
-    private void enviarMensajeABaseDeDatos(Mensaje mensaje) {
-        Connection connection = null;
-        try {
-            connection = MySQLConnection.getConnection();
-            String sql = "INSERT INTO Mensajes (AsuntoMensaje, TipoMensaje, ContenidoMensaje, FechaHoraMensaje, IdUsuario) VALUES (?, ?, ?, ?, ?)";
-
-            // Crear un objeto java.sql.Timestamp para la fecha actual
-            java.util.Date currentDate = new java.util.Date();
-            java.sql.Timestamp timestamp = new java.sql.Timestamp(currentDate.getTime());
-
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, mensaje.getAsunto());
-            statement.setString(2, mensaje.getTipoMensaje());
-            statement.setString(3, mensaje.getContenido());
-            statement.setString(4, mensaje.getFecha()); // Establecer la fecha en la base de datos
-            statement.setInt(5, mensaje.getIdUsuario()); // Establecer el ID de usuario en la base de datos
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         } finally {
             if (connection != null) {
                 try {
@@ -383,14 +374,35 @@ public class EditarCita_Activity extends AppCompatActivity {
     }
 
 
+    private void enviarMensajeABaseDeDatos(Mensaje mensaje) {
+        Connection connection = null;
+        try {
+            connection = MySQLConnection.getConnection();
+            String sql = "INSERT INTO Mensajes (AsuntoMensaje, TipoMensaje, ContenidoMensaje, FechaHoraMensaje, IdUsuario) VALUES (?, ?, ?, ?, ?)";
 
-    private int obtenerIdMascota(String mascotaElegida) {
-        for (Mascota m : mascotasDeEsteUsuario) {
-            if ((m.getNombre() + " [" + m.getEspecie() + "]").equals(mascotaElegida)) {
-                return m.getId();
+            java.util.Calendar calendar = java.util.Calendar.getInstance();
+            calendar.set(java.util.Calendar.MILLISECOND, 0);
+            calendar.set(java.util.Calendar.MILLISECOND, 0);
+            java.sql.Timestamp timestamp = new java.sql.Timestamp(calendar.getTimeInMillis());
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, mensaje.getAsunto());
+            statement.setString(2, mensaje.getTipoMensaje());
+            statement.setString(3, mensaje.getContenido());
+            statement.setString(4, mensaje.getFecha());
+            statement.setInt(5, mensaje.getIdUsuario());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
-        return -1; // Valor predeterminado si no se encuentra la mascota
     }
 
     private void mostrarCalendario() {

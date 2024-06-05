@@ -87,7 +87,7 @@ public class GestionarUsuarios_Activity extends AppCompatActivity {
                     listaUsuarios.add(usuario);
                 }
             } else {
-                Toast.makeText(this, "No se pudo conectar a la base de datos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.error_conexion_bd), Toast.LENGTH_SHORT).show();
             }
         } catch (SQLException e) {
             e.printStackTrace();

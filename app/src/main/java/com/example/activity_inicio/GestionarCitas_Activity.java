@@ -83,7 +83,7 @@ public class GestionarCitas_Activity extends AppCompatActivity {
                 }
                 connection.close();
             } else {
-                Toast.makeText(this, "No se pudo conectar a la base de datos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.error_conectar_bd), Toast.LENGTH_SHORT).show();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -107,7 +107,7 @@ public class GestionarCitas_Activity extends AppCompatActivity {
     // Método para obtener el importe de la cita a partir del tipo de cita
     private double obtenerImporteCita(String citaElegida) {
         // Eliminar el símbolo del euro y espacios en blanco al principio y al final
-        if (!citaElegida.equals("Otros - Por favor, consulte con el veterinario")) {
+        if (!citaElegida.equals(getString(R.string.otros_consulte_veterinario))) {
             String cantidad = citaElegida.replaceAll("[^0-9.]", "").trim();
             return Double.parseDouble(cantidad);
         } else {

@@ -162,7 +162,7 @@ public class EditarUser_Activity extends AppCompatActivity {
                         etTelefono.getText().toString().isEmpty() ||
                         etAsuntoMensaje.getText().toString().isEmpty() ||
                         etContenidoMensaje.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Por favor, complete todos los campos.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.campos_vacios), Toast.LENGTH_SHORT).show();
                 } else {
                     // Todos los campos están completos, actualizar el registro en la base de datos
                     try {
@@ -184,9 +184,9 @@ public class EditarUser_Activity extends AppCompatActivity {
                                 statement.setInt(8, idUsuario);
                                 int rowsAffected = statement.executeUpdate();
                                 if (rowsAffected > 0) {
-                                    Toast.makeText(getApplicationContext(), "Datos actualizados correctamente.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.datos_actualizados_correctamente), Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Error al actualizar los datos.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.error_actualizar_datos), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         } else {
@@ -201,9 +201,9 @@ public class EditarUser_Activity extends AppCompatActivity {
                                 statement.setInt(7, idUsuario);
                                 int rowsAffected = statement.executeUpdate();
                                 if (rowsAffected > 0) {
-                                    Toast.makeText(getApplicationContext(), "Datos actualizados correctamente.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.datos_actualizados_correctamente), Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Error al actualizar los datos.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.error_actualizar_datos), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -219,7 +219,7 @@ public class EditarUser_Activity extends AppCompatActivity {
                         if (cbVetado.isChecked()) {
                             if (etAsuntoMensajeVeto.getText().toString().isEmpty() ||
                                     etContenidoMensajeVeto.getText().toString().isEmpty()) {
-                                Toast.makeText(getApplicationContext(), "Por favor, complete todos los campos para el veto.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), getString(R.string.complete_campos_veto), Toast.LENGTH_SHORT).show();
                             } else {
                                 Mensaje mensajeVeto = new Mensaje(idUsuario, etAsuntoMensajeVeto.getText().toString(), etContenidoMensajeVeto.getText().toString(),
                                         spinnerSelecTipoMensaje.getSelectedItem().toString());
@@ -228,10 +228,10 @@ public class EditarUser_Activity extends AppCompatActivity {
                         }
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(EditarUser_Activity.this);
-                        builder.setMessage("Has actualizado correctamente el usuario:\n" +
-                                "- Usuario: " + etNombre.getText().toString() + " " + etApellido.getText().toString() + "\n" +
-                                "- Email: " + etEmail.getText().toString() + "\n" +
-                                "- Teléfono: " + etTelefono.getText().toString() + "\n");
+                        builder.setMessage(getString(R.string.usuario_actualizado_correctamente) +
+                                getString(R.string.mensaje_usuario_actualizado_usuario) + etNombre.getText().toString() + " " + etApellido.getText().toString() + "\n" +
+                                getString(R.string.mensaje_usuario_actualizado_email) + etEmail.getText().toString() + "\n" +
+                                getString(R.string.mensaje_usuario_actualizado_telefono) + etTelefono.getText().toString() + "\n");
                         builder.setPositiveButton("OK", (dialog, which) -> {
                             Intent intent = new Intent(EditarUser_Activity.this, GestionarUsuarios_Activity.class);
                             intent.putExtra("idUsuario", idUsuario);

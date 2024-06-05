@@ -71,4 +71,9 @@ public class Mascota {
     public String getMascotaIdt() {
         return MascotaIdt;
     }
+
+    @Override
+    public String toString() {
+        return id+"-"+nombre;
+    }
 }

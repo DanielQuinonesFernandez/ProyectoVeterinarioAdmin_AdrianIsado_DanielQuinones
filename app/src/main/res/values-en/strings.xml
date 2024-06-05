@@ -41,6 +41,7 @@
     <string name="historial_medico">Medical History</string>
     <string name="escribe_tu_nombre_de_mascota">Enter Your Pet\'s Name</string>
     <string name="otros_datos">Other Details</string>
+    <string name="mascotas_no_encontradas">No pets found. Unable to create an appointment.</string>
     <string name="fecha_por_defecto">01/01/1900</string>
     <string name="btn_menu_cerrarSesion">Log Out</string>
     <string name="mascotas">About My Pets</string>

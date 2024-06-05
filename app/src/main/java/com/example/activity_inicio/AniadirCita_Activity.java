@@ -156,7 +156,7 @@ public class AniadirCita_Activity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int hora = timePicker.getHour();
                 @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
-                tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
+                tvFechaHoraSeleccionada.setText(getString(R.string.fecha_seleccionada) + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
             }
 
             @Override
@@ -167,14 +167,14 @@ public class AniadirCita_Activity extends AppCompatActivity {
         timePicker.setOnTimeChangedListener((view, hourOfDay, minute) -> {
             int hora = timePicker.getHour();
             @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
-            tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
+            tvFechaHoraSeleccionada.setText(getString(R.string.fecha_seleccionada) + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
         });
 
         spinnerSelecTipoCita.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 edOtroTipoCita.setText("");
-                if (spinnerSelecTipoCita.getSelectedItem().toString().equals("Otros - Por favor, consulte con el veterinario")) {
+                if (spinnerSelecTipoCita.getSelectedItem().toString().equals(getString(R.string.otros_consulte_veterinario))) {
                     edOtroTipoCita.setVisibility(View.VISIBLE);
                     edOtroTipoCita.requestFocus();
                 } else {
@@ -194,7 +194,7 @@ public class AniadirCita_Activity extends AppCompatActivity {
                 try {
                     connection = MySQLConnection.getConnection();
                     if (connection == null) {
-                        Toast.makeText(AniadirCita_Activity.this, "Error al conectar con la base de datos.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AniadirCita_Activity.this, getString(R.string.error_conectar_bd), Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -205,7 +205,7 @@ public class AniadirCita_Activity extends AppCompatActivity {
                             etDescripcionCita.getText().toString().isEmpty()) {
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(AniadirCita_Activity.this);
-                        builder.setMessage("Por favor, complete todos los campos.");
+                        builder.setMessage(getString(R.string.campos_vacios));
                         builder.setPositiveButton("OK", null);
                         builder.create().show();
                         return;
@@ -220,7 +220,7 @@ public class AniadirCita_Activity extends AppCompatActivity {
 
                     // Verificar si el ID de la mascota elegida es válido
                     if (idMascotaElegida == -1) {
-                        Toast.makeText(AniadirCita_Activity.this, "Error: No se encontró la mascota seleccionada.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AniadirCita_Activity.this, getString(R.string.error_no_mascota_seleccionada), Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -232,15 +232,15 @@ public class AniadirCita_Activity extends AppCompatActivity {
                     statement.executeUpdate();
 
                     // Crear y enviar objeto Mensaje
-                    Mensaje mensaje = new Mensaje(idUsuario, "Cita añadida", "Tu cita ha sido creada exitosamente.", "Cita añadida");
+                    Mensaje mensaje = new Mensaje(idUsuario, getString(R.string.cita_anadida), getString(R.string.cita_anadida_exito), getString(R.string.cita_anadida));
                     enviarMensajeABaseDeDatos(mensaje);
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(AniadirCita_Activity.this);
-                    builder.setMessage("Se te ha asignado una nueva cita correctamente:\n" +
-                            "- Fecha: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr + "\n" +
-                            "- Tipo de cita: " + spinnerSelecTipoCita.getSelectedItem().toString() + "\n" +
-                            "- Descripción: " + etDescripcionCita.getText().toString() + "\n" +
-                            "- Mascota: " + mascotaSeleccionada);
+                    builder.setMessage(getString(R.string.cita_asignada_correctamente) +
+                            getString(R.string.mensaje_cita_asignada_fecha) + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr + "\n" +
+                            getString(R.string.mensaje_cita_asignada_tipo) + spinnerSelecTipoCita.getSelectedItem().toString() + "\n" +
+                            getString(R.string.mensaje_cita_asignada_descripcion) + etDescripcionCita.getText().toString() + "\n" +
+                            getString(R.string.mensaje_cita_asignada_mascota) + mascotaSeleccionada);
                     builder.setPositiveButton("OK", (dialog, which) -> {
                         Intent intent = new Intent(AniadirCita_Activity.this, GestionarCitas_Activity.class);
                         intent.putExtra("idUsuario", idUsuario);
@@ -329,7 +329,7 @@ public class AniadirCita_Activity extends AppCompatActivity {
             statement.setInt(1, idUsuario);
             ResultSet resultSet = statement.executeQuery();
 
-            mascotasDeEsteUsuario.clear(); // Limpiar la lista antes de llenarla
+            mascotasDeEsteUsuario.clear();
 
             while (resultSet.next()) {
                 int idMascota = resultSet.getInt("IdMascota");
@@ -342,10 +342,9 @@ public class AniadirCita_Activity extends AppCompatActivity {
             connection.close();
 
             if (mascotasUsuarios.isEmpty()) {
-                Toast.makeText(this, "No se han encontrado mascotas. No se puede crear una cita.", Toast.LENGTH_LONG).show();
-                finish(); // Salir de la actividad
+                Toast.makeText(this, getString(R.string.mascotas_no_encontradas), Toast.LENGTH_LONG).show();
+                finish();
             } else {
-                // Seleccionar el primer elemento si hay mascotas
                 spinnerSelecMascota.setSelection(0);
                 ((ArrayAdapter) spinnerSelecMascota.getAdapter()).notifyDataSetChanged();
             }

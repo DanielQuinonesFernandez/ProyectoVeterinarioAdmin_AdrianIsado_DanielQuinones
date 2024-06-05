@@ -56,7 +56,7 @@ public class IniciarSesion_Activity extends AppCompatActivity {
             if (!hayCamposVacios()) {
                 iniciarSesion();
             } else {
-                Toast.makeText(context, "No puedes dejar campos vacíos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getString(R.string.campos_vacios), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -84,7 +84,7 @@ public class IniciarSesion_Activity extends AppCompatActivity {
                 Intent intent = new Intent(context, MenuPrincipal_Activity.class);
                 startActivity(intent);
                 finish(); // Cerrar la actividad actual
-                Toast.makeText(context, "HAS INICIADO SESIÓN", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getString(R.string.sesion_iniciada), Toast.LENGTH_SHORT).show();
             } else {
                 // El usuario y/o la contraseña son incorrectos
                 // Mostrar un Toast con los intentos restantes
@@ -92,7 +92,7 @@ public class IniciarSesion_Activity extends AppCompatActivity {
                 if (intentosRestantes <= -1) {
                     intentosRestantes = 1;
                 }
-                Toast.makeText(context, "Nombre de usuario o contraseña incorrectos. Intentos restantes: " + intentosRestantes, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getString(R.string.usuario_contraseña_incorrectos) + intentosRestantes, Toast.LENGTH_SHORT).show();
 
                 // Guardar el número de intentos fallidos en SharedPreferences
                 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -116,7 +116,7 @@ public class IniciarSesion_Activity extends AppCompatActivity {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            Toast.makeText(context, "Error al iniciar sesión: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, getString(R.string.error_iniciar_sesion) + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
