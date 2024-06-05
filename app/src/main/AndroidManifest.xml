@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logovet_sinbordes"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logovet_sinbordes"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ProyectoVeterinario_AdrianIsado_DanielQuinones"
+        tools:targetApi="31">
+        <activity
+            android:name=".AniadirUser_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".AniadirCita_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarUser_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarCita_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".GestionarCitas_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".GestionarUsuariosVetados_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".GestionarUsuarios_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuPrincipal_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".PantallaBloqueo"
+            android:exported="false" />
+        <activity
+            android:name=".ListaUsuarios_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".IniciarSesion_Activity"
+            android:exported="false" />
+        <activity
+            android:name="es.dam.model.objetos.SplashScreen"
+            android:enableOnBackInvokedCallback="true"
+            android:exported="true"
+            android:theme="@style/Theme.ProyectoVeterinario_AdrianIsado_DanielQuinones.NoActionBar"
+            tools:targetApi="tiramisu">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

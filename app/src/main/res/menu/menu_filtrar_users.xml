@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/quitar_filtro"
+        android:title="Quitar filtro"
+        android:orderInCategory="100"
+        android:actionLayout="@layout/layout_menu_item" />
+
+    <item
+        android:id="@+id/filtrar_por_veto"
+        android:title="Filtrar por usuarios vetados"
+        android:orderInCategory="101"
+        android:actionLayout="@layout/layout_menu_item" />
+
+    <item
+        android:id="@+id/filtrar_por_noVeto"
+        android:title="Filtrar por usuarios no vetados"
+        android:orderInCategory="102"
+        android:actionLayout="@layout/layout_menu_item" />
+
+    <item
+        android:id="@+id/buscar_usuario"
+        android:title="Buscar usuario"
+        android:orderInCategory="103"
+        android:actionLayout="@layout/layout_menu_item" />
+</menu>

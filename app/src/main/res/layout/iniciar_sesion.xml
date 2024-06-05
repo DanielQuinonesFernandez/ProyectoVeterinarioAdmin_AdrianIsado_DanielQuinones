@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondogris_app"
+    android:orientation="vertical"
+    tools:context=".IniciarSesion_Activity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logovet"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_corner_background"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- TEXTO CORREO -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/correo"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+        <!-- EDIT TEXT CORREO -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCorreoElectronico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:inputType="textEmailAddress"
+                android:text="admin@animalia.es"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+        <!-- TEXTO CONTRASEÑA -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/contrasena"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+        <!-- EDIT TEXT CONTRASEÑA -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:background="@drawable/edit_text_border"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:inputType="textPassword"
+                android:text="admin"
+                android:layout_marginBottom="32dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+        <TextView
+            android:id="@+id/btnIniciarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_azul_cielo"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/iniciar_sesion"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/btnLimpiarCampos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:text="@string/limpiar_campos"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_azul_grisaceo"
+            android:fontFamily="@font/poppins_bold"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+</LinearLayout>

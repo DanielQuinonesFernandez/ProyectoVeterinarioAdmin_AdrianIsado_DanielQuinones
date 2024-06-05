@@ -1,0 +1,190 @@
+<resources>
+    <string name="app_name">Animalia - Your Vet</string>
+
+    <!-- Menu Buttons -->
+    <string name="nav_header_title">Animalia</string>
+    <string name="nav_header_subtitle">animalia@animalia.es</string>
+    <string name="btn_menu_miPerfil">My Profile</string>
+    <string name="btn_menu_pedirCita">Request Appointment</string>
+    <string name="btn_menu_mensajes">Messages</string>
+    <string name="btn_menu_registrarMascota">Register Pet</string>
+    <string name="btn_menu_historialMascotas">My Appointments History</string>
+    <string name="btn_menu_FAQ">FAQ</string>
+    <string name="action_settings">Settings</string>
+    <string name="iniciar_sesion">Log In</string>
+    <string name="registrarse">Sign Up</string>
+    <string name="has_olvidado_tu_contrasena">Forgot Your Password?</string>
+    <string name="nombre">Name</string>
+    <string name="escribe_tu_nombre">Enter Your Name</string>
+    <string name="apellidos">Last Name</string>
+    <string name="escribe_tu_apellido">Enter Your Last Name</string>
+    <string name="escribe_tu_correo">Enter Your Email</string>
+    <string name="correo">Email</string>
+    <string name="contrasena">Password</string>
+    <string name="escribe_tu_contrasena">Enter Your Password</string>
+    <string name="repite_contrasena">Repeat Your Password</string>
+    <string name="registra_tu_mascota">REGISTER YOUR PET</string>
+    <string name="especie_mascota">Pet Species</string>
+    <string name="escribe_la_especie">Enter Your Pet\'s Species</string>
+    <string name="fechaNacimiento_mascota">Date of Birth</string>
+    <string name="escribe_la_fechaNac_mascota">dd/mm/yyyy</string>
+    <string name="cargar_imagen">Upload a Photo of My Pet</string>
+    <string name="registrar_mascota">Register Pet</string>
+    <string name="limpiar_campos">Clear Fields</string>
+    <string name="pide_tu_cita">Request Your Appointment</string>
+    <string name="selec_tu_mascota">Select Your Pet</string>
+    <string name="selec_tipo_cita">Type of Appointment</string>
+    <string name="selec_fechaHora_cita">Date and Time</string>
+    <string name="pedir_cita">Request Appointment</string>
+    <string name="numero_telefono">Phone Number</string>
+    <string name="escribe_tu_numTlf">Enter Your Phone Number</string>
+    <string name="historial_medico">Medical History</string>
+    <string name="escribe_tu_nombre_de_mascota">Enter Your Pet\'s Name</string>
+    <string name="otros_datos">Other Details</string>
+    <string name="fecha_por_defecto">01/01/1900</string>
+    <string name="btn_menu_cerrarSesion">Log Out</string>
+    <string name="mascotas">About My Pets</string>
+    <string name="sobre_mi">About me</string>
+    <string name="escribe_aqui_el_tipo_de_cita">Write here the type of appointment</string>
+    <string name="escribe_otros_datos_relevantes_sobre_la_cita">Write other relevant details</string>
+    <string name="mascotas_dosPuntos">Pets:</string>
+    <string name="contrasena_actual">Actual password:</string>
+    <string name="contrasena_nueva">New password:</string>
+    <string name="cambiar_contrasena">Change password</string>
+    <string name="info_bloqueo">The application has been blocked because it has exceeded the maximum attempt, you can try again in:</string>
+    <string name="editar_cita">Edit Appointment</string>
+    <string name="selecciona_un_usuario">Select a user</string>
+    <string name="selecciona_la_mascota_del_usuario">Select the user\'s pet</string>
+    <string name="aniadir_cita">Add Appointment</string>
+    <string name="mensaje_a_enviar">Message to send</string>
+    <string name="asunto">Subject</string>
+    <string name="escribe_el_asunto_del_mensaje">Write the message subject</string>
+    <string name="tipo_de_mensaje">Message type</string>
+    <string name="escribe_el_contenido_del_mensaje">Write the message content</string>
+    <string name="editar_usuario">Edit User</string>
+    <string name="escribe_el_nombre_del_usuario">Write the user\'s name</string>
+    <string name="escribe_los_apellidos_del_usuario">Write the user\'s last name</string>
+    <string name="escribe_el_correo_del_usuario">Write the user\'s email</string>
+    <string name="escribe_la_contrasenia_del_usuario">Write the user\'s password</string>
+    <string name="escribe_el_telefono_del_usuario">Write the user\'s phone</string>
+    <string name="usuario_vetado">User banned:</string>
+    <string name="gestion_de_veto">Ban Management</string>
+    <string name="gestion_de_citas">APPOINTMENT MANAGEMENT</string>
+    <string name="pulsa_para_filtrar_por">Tap to filter by:</string>
+    <string name="buscar_usuario">Search user</string>
+    <string name="buscar">Search</string>
+    <string name="gestion_de_usuarios">USER MANAGEMENT</string>
+    <string name="bienvenida">Welcome</string>
+    <string name="gestionar_ncitas">MANAGE\nAPPOINTMENTS</string>
+    <string name="gestionar_nusuarios">MANAGE\nUSERS</string>
+    <string name="fecha_seleccionada">Selected date: </string>
+    <string name="otros_consulte_veterinario">Others - Please consult with the veterinarian</string>
+    <string name="error_conexion_bd">Error connecting to the database.</string>
+    <string name="complete_todos_campos">Please complete all fields.</string>
+    <string name="error_no_mascota_seleccionada">Error: Selected pet not found.</string>
+    <string name="cita_anadida">Appointment added</string>
+    <string name="cita_anadida_exito">Your appointment has been successfully created.</string>
+    <string name="cita_asignada_correctamente">A new appointment has been assigned to you:\n</string>
+    <string name="mensaje_cita_asignada_fecha">- Date: </string>
+    <string name="mensaje_cita_asignada_tipo">- Appointment type: </string>
+    <string name="mensaje_cita_asignada_descripcion">- Description: </string>
+    <string name="mensaje_cita_asignada_mascota">- Pet: </string>
+    <string name="cita_actualizada_correctamente">Your appointment has been updated successfully:\n</string>
+    <string name="defecto">Default</string>
+    <string name="datos_actualizados_correctamente">Data updated successfully.</string>
+    <string name="error_actualizar_datos">Error updating data.</string>
+    <string name="complete_campos_veto">Please complete all fields for the ban.</string>
+    <string name="usuario_actualizado_correctamente">User updated successfully:\n</string>
+    <string name="mensaje_usuario_actualizado_usuario">- User: </string>
+    <string name="mensaje_usuario_actualizado_email">- Email: </string>
+    <string name="mensaje_usuario_actualizado_telefono">- Phone: </string>
+    <string name="error_enviar_mensaje_bd">Error sending message to the database: </string>
+    <string name="error_conectar_bd">Could not connect to the database</string>
+    <string name="campos_vacios">You cannot leave fields empty</string>
+    <string name="sesion_iniciada">YOU HAVE LOGGED IN</string>
+    <string name="usuario_contraseña_incorrectos">Incorrect username or password. Remaining attempts: </string>
+    <string name="error_iniciar_sesion">Error logging in: </string>
+
+
+    <string-array name="tipos_de_cita">
+        <item>General Consultation - €50.00</item>
+        <item>Vaccination - €30.00</item>
+        <item>Sterilization/Castration - €150.00</item>
+        <item>Weight Check - €25.00</item>
+        <item>Dental Checkup - €40.00</item>
+        <item>Parasite Treatment - €60.00</item>
+        <item>Wound or Suture Review - €35.00</item>
+        <item>Laboratory Exams - €55.00</item>
+        <item>Surgery - €150.00</item>
+        <item>Emergency - €80.00</item>
+        <item>Annual Checkup - €40.00</item>
+        <item>Nutritional Counseling - €70.00</item>
+        <item>Chronic Disease Control - €60.00</item>
+        <item>Specialized Consultation - €75.00</item>
+        <item>Deworming - €25.00</item>
+        <item>Puppy Vaccination - €35.00</item>
+        <item>Disease Treatment - €45.00</item>
+        <item>Behavior Review - €50.00</item>
+        <item>Medication Control - €30.00</item>
+        <item>Dressings or Bandages - €20.00</item>
+        <item>Exotic Animal Consultations - €100.00</item>
+        <item>Care Counseling - €60.00</item>
+        <item>Others - Please Consult with the Veterinarian</item>
+    </string-array>
+
+    <string-array name="tipos_de_mensaje">
+        <item>Default modification</item>
+        <item>Time change</item>
+        <item>Appointment type change</item>
+        <item>Appointment description change</item>
+    </string-array>
+
+    <string name="mod_defecto">Default modification</string>
+    <string name="mod_cambio_hora">Time change</string>
+    <string name="mod_cambio_tipo_cita">Appointment type change</string>
+    <string name="mod_cambio_desc">Appointment description change</string>
+
+    <!-- Contenidos predeterminados para los tipos de mensaje -->
+    <string name="contenido_modificacion_por_defecto">Your appointment has been modified.</string>
+    <string name="contenido_cambio_de_hora">The schedule of your appointment has been changed.</string>
+    <string name="contenido_cambio_de_tipo_de_cita">The type of your appointment has been changed.</string>
+    <string name="contenido_cambio_de_descripcion_de_la_cita">The description of your appointment has been changed.</string>
+
+    <string-array name="tipos_de_veto">
+        <item>Improper use of the application</item>
+        <item>Failure to attend appointments</item>
+        <item>Excessive use of pet creation</item>
+        <item>Inappropriate behavior</item>
+    </string-array>
+
+    <string name="razon_defecto">Improper use of the application</string>
+    <string name="razon_inasistencia">Failure to attend appointments</string>
+    <string name="razon_mascotas">Excessive use of pet creation</string>
+    <string name="razon_comportamiento">Inappropriate behavior</string>
+
+    <!-- Default contents for veto types -->
+    <string name="contenido_razon_defecto">Your user has been restricted due to improper use of the application.</string>
+    <string name="contenido_razon_inasistencia">Your user has been restricted due to failure to attend appointments or excessive creation of them.</string>
+    <string name="contenido_razon_mascotas">Your user has been restricted due to excessive or inappropriate creation of pets.</string>
+    <string name="contenido_razon_comportamiento">Your user has been restricted due to your behavior inside or outside the clinic.</string>
+
+    <string-array name="tipos_de_mensaje_user">
+        <item>Default Modification</item>
+        <item>Email Change</item>
+        <item>Phone Number Change</item>
+        <item>Password Change</item>
+    </string-array>
+
+    <string name="mod_user_defecto">Default Modification</string>
+    <string name="mod_user_cambio_email">Email Change</string>
+    <string name="mod_user_cambio_telefono">Phone Number Change</string>
+    <string name="mod_user_cambio_contra">Password Change</string>
+
+    <!-- Default contents for user modification message types -->
+    <string name="contenido_modificacion_por_defecto_user">Your user has been modified.</string>
+    <string name="contenido_email_user">Your email has been modified.</string>
+    <string name="contenido_telefono_user">Your phone number has been modified.</string>
+    <string name="contenido_contra_user">Your password has been modified.</string>
+
+
+</resources>

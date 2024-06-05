@@ -1,0 +1,189 @@
+<resources>
+    <string name="app_name">Animalia - Tu Veterinario</string>
+
+    <!-- Botones de menú -->
+    <string name="nav_header_title">Animalia</string>
+    <string name="nav_header_subtitle">animalia@animalia.es</string>
+    <string name="btn_menu_miPerfil">Mi perfil</string>
+    <string name="btn_menu_pedirCita">Pedir cita</string>
+    <string name="btn_menu_mensajes">Mensajes</string>
+    <string name="btn_menu_registrarMascota">Registrar mascota</string>
+    <string name="btn_menu_historialMascotas">Historial de mis citas</string>
+    <string name="btn_menu_FAQ">FAQ</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="has_olvidado_tu_contrasena">¿Has olvidado tu contraseña?</string>
+    <string name="nombre">Nombre</string>
+    <string name="escribe_tu_nombre">Escribe tu nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="escribe_tu_apellido">Escribe tu apellido</string>
+    <string name="escribe_tu_correo">Escribe tu correo</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="escribe_tu_contrasena">Escribe tu contraseña</string>
+    <string name="repite_contrasena">Repite tu contraseña</string>
+    <string name="registra_tu_mascota">REGISTRA TU MASCOTA</string>
+    <string name="especie_mascota">Especie de tu mascota</string>
+    <string name="escribe_la_especie">Escribe la especie de tu mascota</string>
+    <string name="fechaNacimiento_mascota">Fecha de nacimiento</string>
+    <string name="escribe_la_fechaNac_mascota">dd/mm/aaaa</string>
+    <string name="cargar_imagen">Subir foto de mi mascota</string>
+    <string name="registrar_mascota">Registrar mascota</string>
+    <string name="limpiar_campos">Limpiar campos</string>
+    <string name="pide_tu_cita">Pide tu cita</string>
+    <string name="selec_tu_mascota">Selecciona tu mascota</string>
+    <string name="selec_tipo_cita">Tipo de cita</string>
+    <string name="selec_fechaHora_cita">Fecha y hora</string>
+    <string name="pedir_cita">Pedir cita</string>
+    <string name="numero_telefono">Teléfono</string>
+    <string name="escribe_tu_numTlf">Escribe tu número de teléfono</string>
+    <string name="historial_medico">Historial médico</string>
+    <string name="escribe_tu_nombre_de_mascota">Escribe el nombre de tu mascota</string>
+    <string name="otros_datos">Otros datos</string>
+    <string name="fecha_por_defecto">01-01-1900 00:00</string>
+    <string name="btn_menu_cerrarSesion">Cerrar sesión</string>
+    <string name="mascotas">Sobre mis mascotas</string>
+    <string name="sobre_mi">Sobre mi</string>
+    <string name="escribe_aqui_el_tipo_de_cita">Escribe aqui el tipo de cita</string>
+    <string name="escribe_otros_datos_relevantes_sobre_la_cita">Escribe otros datos relevantes sobre la cita</string>
+    <string name="mascotas_dosPuntos">Mascotas:</string>
+    <string name="contrasena_actual">Contraseña actual:</string>
+    <string name="contrasena_nueva">Contraseña nueva:</string>
+    <string name="cambiar_contrasena">Cambiar contraseña</string>
+    <string name="info_bloqueo">Se ha bloqueado la aplicación porque has excedido el máximo de intento, podrás volverlo a intentar en:</string>
+    <string name="editar_cita">Editar Cita</string>
+    <string name="selecciona_un_usuario">Selecciona un usuario</string>
+    <string name="selecciona_la_mascota_del_usuario">Selecciona la mascota del usuario</string>
+    <string name="aniadir_cita">Añadir Cita</string>
+    <string name="mensaje_a_enviar">Mensaje a enviar</string>
+    <string name="asunto">Asunto</string>
+    <string name="escribe_el_asunto_del_mensaje">Escribe el asunto del mensaje</string>
+    <string name="tipo_de_mensaje">Tipo de mensaje</string>
+    <string name="escribe_el_contenido_del_mensaje">Escribe el contenido del mensaje</string>
+    <string name="editar_usuario">Editar Usuario</string>
+    <string name="escribe_el_nombre_del_usuario">Escribe el nombre del usuario</string>
+    <string name="escribe_los_apellidos_del_usuario">Escribe los apellidos del usuario</string>
+    <string name="escribe_el_correo_del_usuario">Escribe el correo del usuario</string>
+    <string name="escribe_la_contrasenia_del_usuario">Escribe la contraseña del usuario</string>
+    <string name="escribe_el_telefono_del_usuario">Escribe el teléfono del usuario</string>
+    <string name="usuario_vetado">Usuario vetado:</string>
+    <string name="gestion_de_veto">Gestión de veto</string>
+    <string name="gestion_de_citas">GESTIÓN DE CITAS</string>
+    <string name="pulsa_para_filtrar_por">Pulsa para filtrar por:</string>
+    <string name="buscar_usuario">Buscar usuario</string>
+    <string name="buscar">Buscar</string>
+    <string name="gestion_de_usuarios">GESTIÓN DE USUARIOS</string>
+    <string name="bienvenida">Bienvenid@</string>
+    <string name="gestionar_ncitas">GESTIONAR\nCITAS</string>
+    <string name="gestionar_nusuarios">GESTIONAR\nUSUARIOS</string>
+    <string name="fecha_seleccionada">Fecha seleccionada: </string>
+    <string name="otros_consulte_veterinario">Otros - Por favor, consulte con el veterinario</string>
+    <string name="error_conexion_bd">Error al conectar con la base de datos.</string>
+    <string name="complete_todos_campos">Por favor, complete todos los campos.</string>
+    <string name="error_no_mascota_seleccionada">Error: No se encontró la mascota seleccionada.</string>
+    <string name="cita_anadida">Cita añadida</string>
+    <string name="cita_anadida_exito">Tu cita ha sido creada exitosamente.</string>
+    <string name="cita_asignada_correctamente">Se te ha asignado una nueva cita correctamente:\n</string>
+    <string name="mensaje_cita_asignada_fecha">- Fecha: </string>
+    <string name="mensaje_cita_asignada_tipo">- Tipo de Cita: </string>
+    <string name="mensaje_cita_asignada_descripcion">- Descripción: </string>
+    <string name="mensaje_cita_asignada_mascota">- Mascota: </string>
+    <string name="cita_actualizada_correctamente">Has actualizado correctamente la cita:\n</string>
+    <string name="defecto">Defecto</string>
+    <string name="datos_actualizados_correctamente">Datos actualizados correctamente.</string>
+    <string name="error_actualizar_datos">Error al actualizar los datos.</string>
+    <string name="complete_campos_veto">Por favor, complete todos los campos para el veto.</string>
+    <string name="usuario_actualizado_correctamente">Has actualizado correctamente el usuario:\n</string>
+    <string name="mensaje_usuario_actualizado_usuario">- Usuario: </string>
+    <string name="mensaje_usuario_actualizado_email">- Email: </string>
+    <string name="mensaje_usuario_actualizado_telefono">- Teléfono: </string>
+    <string name="error_enviar_mensaje_bd">Error al enviar mensaje a la base de datos: </string>
+    <string name="error_conectar_bd">No se pudo conectar a la base de datos</string>
+    <string name="campos_vacios">No puedes dejar campos vacíos</string>
+    <string name="sesion_iniciada">HAS INICIADO SESIÓN</string>
+    <string name="usuario_contraseña_incorrectos">Nombre de usuario o contraseña incorrectos. Intentos restantes: </string>
+    <string name="error_iniciar_sesion">Error al iniciar sesión: </string>
+
+    <string-array name="tipos_de_cita">
+        <item>Consulta general - 50.00€</item>
+        <item>Vacunación - 30.00€</item>
+        <item>Esterilización/Castración - 150.00€</item>
+        <item>Control de peso - 25.00€</item>
+        <item>Chequeo dental - 40.00€</item>
+        <item>Tratamiento contra parásitos - 60.00€</item>
+        <item>Revisión de heridas o suturas - 35.00€</item>
+        <item>Exámenes de laboratorio - 55.00€</item>
+        <item>Cirugía - 150.00€</item>
+        <item>Emergencia - 80.00€</item>
+        <item>Chequeo anual - 40.00€</item>
+        <item>Consejería nutricional - 70.00€</item>
+        <item>Control de enfermedades crónicas - 60.00€</item>
+        <item>Consulta especializada - 75.00€</item>
+        <item>Desparasitación - 25.00€</item>
+        <item>Vacunación de cachorros - 35.00€</item>
+        <item>Tratamiento de enfermedades - 45.00€</item>
+        <item>Revisión de comportamiento - 50.00€</item>
+        <item>Control de medicación - 30.00€</item>
+        <item>Curas o vendajes - 20.00€</item>
+        <item>Consultas para animales exóticos - 100.00€</item>
+        <item>Consejería sobre cuidados - 60.00€</item>
+        <item>Otros - Por favor, consulte con el veterinario</item>
+    </string-array>
+
+    <string-array name="tipos_de_mensaje">
+        <item>Modificación por defecto</item>
+        <item>Cambio de hora</item>
+        <item>Cambio de tipo de cita</item>
+        <item>Cambio de descripción de la cita</item>
+    </string-array>
+
+    <string name="mod_defecto">Modificación por defecto</string>
+    <string name="mod_cambio_hora">Cambio de hora</string>
+    <string name="mod_cambio_tipo_cita">Cambio de tipo de cita</string>
+    <string name="mod_cambio_desc">Cambio de descripción de la cita</string>
+
+    <string-array name="tipos_de_mensaje_user">
+        <item>Modificación por defecto</item>
+        <item>Cambio de correo electrónico</item>
+        <item>Cambio de teléfono</item>
+        <item>Cambio de contraseña</item>
+    </string-array>
+
+    <string name="mod_user_defecto">Modificación por defecto</string>
+    <string name="mod_user_cambio_email">Cambio de correo electrónico</string>
+    <string name="mod_user_cambio_telefono">Cambio de teléfono</string>
+    <string name="mod_user_cambio_contra">Cambio de contraseña</string>
+
+    <string-array name="tipos_de_veto">
+        <item>Uso indebido de la aplicación</item>
+        <item>Inasistencia en las citas</item>
+        <item>Uso excesivo de la creación de mascotas</item>
+        <item>Comportamiento inadecuado</item>
+    </string-array>
+
+    <string name="razon_defecto">Uso indebido de la aplicación</string>
+    <string name="razon_inasistencia">Inasistencia en las citas</string>
+    <string name="razon_mascotas">Uso excesivo de la creación de mascotas</string>
+    <string name="razon_comportamiento">Comportamiento inadecuado</string>
+
+    <!-- Contenidos predeterminados para los tipos de mensaje -->
+    <string name="contenido_modificacion_por_defecto">Se ha modificado su cita.</string>
+    <string name="contenido_cambio_de_hora">El horario de su cita ha sido cambiado.</string>
+    <string name="contenido_cambio_de_tipo_de_cita">El tipo de su cita ha sido cambiado.</string>
+    <string name="contenido_cambio_de_descripcion_de_la_cita">La descripción de su cita ha sido cambiada.</string>
+
+    <!-- Contenidos predeterminados para los tipos de mensaje para modificaciones de usuario -->
+    <string name="contenido_modificacion_por_defecto_user">Se ha modificado su usuario.</string>
+    <string name="contenido_email_user">Se ha modificado su correo electrónico.</string>
+    <string name="contenido_telefono_user">Se ha modificado su número de teléfono.</string>
+    <string name="contenido_contra_user">Se ha modificado su contraseña.</string>
+
+    <!-- Contenidos predeterminados para los tipos de veto -->
+    <string name="contenido_razon_defecto">Se ha restringido su usuario por un uso indebido dentro de la aplicación.</string>
+    <string name="contenido_razon_inasistencia">Se ha restringido su usuario debido a su inasistencia en las citas o su creación excesiva de las mismas.</string>
+    <string name="contenido_razon_mascotas">Se ha restringido su usuario debido a la creación excesiva o inadecuada de sus mascotas</string>
+    <string name="contenido_razon_comportamiento">Se ha restringido su usuario debido a su comportamiento dentro o fuera de la clínica.</string>
+
+
+</resources>

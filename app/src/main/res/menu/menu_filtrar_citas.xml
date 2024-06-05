@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/filtrar_por_id"
+        android:title="Filtrar por ID"
+        android:orderInCategory="100"
+        android:actionLayout="@layout/layout_menu_item" />
+
+    <item
+        android:id="@+id/filtrar_por_fecha"
+        android:title="Filtrar por fecha"
+        android:orderInCategory="101"
+        android:actionLayout="@layout/layout_menu_item" />
+
+    <item
+        android:id="@+id/buscar_usuario"
+        android:title="Buscar usuario"
+        android:orderInCategory="102"
+        android:actionLayout="@layout/layout_menu_item" />
+</menu>
