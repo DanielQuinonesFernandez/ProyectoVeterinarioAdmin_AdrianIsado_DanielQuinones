@@ -51,7 +51,7 @@
     <string name="contrasena_actual">Contraseña actual:</string>
     <string name="contrasena_nueva">Contraseña nueva:</string>
     <string name="cambiar_contrasena">Cambiar contraseña</string>
-    <string name="info_bloqueo">Se ha bloqueado la aplicación porque has excedido el máximo de intento, podrás volverlo a intentar en:</string>
+    <string name="info_bloqueo">Se ha bloqueado la aplicación porque has excedido el máximo de intentos, podrás volverlo a intentar en:</string>
     <string name="editar_cita">Editar Cita</string>
     <string name="selecciona_un_usuario">Selecciona un usuario</string>
     <string name="selecciona_la_mascota_del_usuario">Selecciona la mascota del usuario</string>
